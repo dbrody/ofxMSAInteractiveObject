@@ -107,19 +107,23 @@ void ofxMSAInteractiveWindow::_mouseMoved(ofMouseEventArgs &e) {
 //    }
 //
     
-    _mouseX = x;
-	_mouseY = y;
+    //	_mouseX = x;
+    //	_mouseY = y;
 	
 	if(hitTest(x, y)) {						// if mouse is over the object
-		if(!_mouseOver) {						// if wasn't over previous frame
+		if(!_isMouseOver) {						// if wasn't over previous frame
+			_isMouseOver = true;						// update flag
 			onRollOver(x, y);						// call onRollOver
-			_mouseOver = true;						// update flag
 		}
 		onMouseMove(x, y);						// and trigger onMouseMove
-	} else if(_mouseOver) {					// if mouse is not over the object, but the flag is true (From previous frame)
+	} else if(_isMouseOver) {					// if mouse is not over the object, but the flag is true (From previous frame)
 		onRollOut();							// call onRollOut
-		_mouseOver = false;						// update flag
+		_isMouseOver = false;						// update flag
 	}
+    
+    _stateChangeTimestampMillis = ofGetElapsedTimeMillis();
+    
+    mouseMoved(x, y);
 }
 
 
