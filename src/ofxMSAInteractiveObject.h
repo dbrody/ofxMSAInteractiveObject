@@ -33,6 +33,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "WindowManager.h"
 
 
 class ofxMSAInteractiveObject : public ofRectangle {
@@ -43,17 +44,17 @@ public:
 	ofxMSAInteractiveObject();			// constructor
 	virtual ~ofxMSAInteractiveObject();	// destructor
 
-	void enableAllEvents();				// enable all event callbacks
-	void disableAllEvents();			// disable all event callbacks
+	virtual void enableAllEvents();				// enable all event callbacks
+	virtual void disableAllEvents();			// disable all event callbacks
 
-	void enableMouseEvents();			// call this if object should receive mouse events
-	void disableMouseEvents();			// call this if object doesn't need to receive mouse events (default)
+	virtual void enableMouseEvents();			// call this if object should receive mouse events
+	virtual void disableMouseEvents();			// call this if object doesn't need to receive mouse events (default)
 
-	void enableKeyEvents();				// call this if object should receive key events
-	void disableKeyEvents();			// call this if object doesn't need to receive key events (default)
+	virtual void enableKeyEvents();				// call this if object should receive key events
+	virtual void disableKeyEvents();			// call this if object doesn't need to receive key events (default)
 
-	void enableAppEvents();				// call this if object should update/draw automatically	(default)
-	void disableAppEvents();			// call this if object doesn't need to update/draw automatically
+	virtual void enableAppEvents();				// call this if object should update/draw automatically	(default)
+	virtual void disableAppEvents();			// call this if object doesn't need to update/draw automatically
 
 	void setPos(float _x, float _y);	// set position of object
 	void setSize(float _w, float _h);	// set size of object
