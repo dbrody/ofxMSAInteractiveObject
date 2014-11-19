@@ -19,7 +19,8 @@ public:
 	virtual ~ofxMSAInteractiveWindow();	// destructor
     
     void setWindow(int win_num);        // set window number this object belongs to
-
+    bool isActive();                    // Is current window active for drawing
+    
     void enableAllEvents();				// enable all event callbacks
 	void disableAllEvents();			// disable all event callbacks
     

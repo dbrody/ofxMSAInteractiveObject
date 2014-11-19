@@ -11,7 +11,7 @@
 
 ofxMSAInteractiveWindow::ofxMSAInteractiveWindow() : ofxMSAInteractiveObject() {
     ofxMSAInteractiveObject::disableAllEvents();
-    enableAppEvents();
+    //enableAppEvents();
 }
 
 ofxMSAInteractiveWindow::~ofxMSAInteractiveWindow() {
@@ -124,6 +124,10 @@ void ofxMSAInteractiveWindow::_mouseMoved(ofMouseEventArgs &e) {
     _stateChangeTimestampMillis = ofGetElapsedTimeMillis();
     
     mouseMoved(x, y);
+}
+
+bool ofxMSAInteractiveWindow::isActive(){
+    return ofxIsWindowActive(_window_num);
 }
 
 
